@@ -1,0 +1,146 @@
+////////////////////////////
+// Cross Browser Support
+$graceful-usage-threshold: 100;
+$critical-usage-threshold: 100;
+
+$browser-minimum-versions: (
+  "ie": "9",
+  "android": "4",
+  "chrome": "37",
+  "safari": "7",
+  "firefox": "30",
+  "ios-safari": "8"
+);
+////////////////////////////
+
+////////////////////////
+// Setup
+@import "compass";
+@import "toolkit";
+
+// Reset
+html, body, article, p, h1 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  @include enable-ligatures(true);
+}
+
+html {
+  line-height: 1;
+}
+
+article {
+  display: block;
+}
+
+@import "toolkit/kickstart";
+@import "breakpoint";
+@import "letterform-shades";
+////////////////////////
+
+body {
+  background: #d2e1dd;
+}
+
+$black: #6b717f;
+
+
+.intro {
+  &--text {
+    font-size: 3vw;
+    text-align: center;
+    color: #036;
+    text-transform: lowercase;
+    font-family: 'maven';
+  }
+
+  &--title {
+    $color: #c69;
+    font-size: 40vw;
+    text-align: center;
+    width: 100%;
+    color: $color;
+
+    @include close-shade(#998099, $black, $distance: 10, $size: 1px);
+    font-family: 'billion';
+  }
+
+  &--progress {
+    $width: 80vw;
+    width: $width;
+    transform: translateX((100vw - $width) / 2) translateY(5vw);
+
+    -webkit-appearance: none;
+    appearance: none;
+    border: 0;
+    height: 1.5vw;
+    border-radius: 0;
+  }
+}
+
+@mixin progress-bar {
+  background-color: rgba(#333, .10);
+}
+
+@mixin progress-value {
+  @include animation(animate-stripes 7s linear infinite);
+
+  @include background-image (
+    linear-gradient(-45deg,
+      transparent 33%,
+      rgba($black, .1) 33%,
+      rgba($black, .1) 66%,
+      transparent 66%
+    ),
+    linear-gradient(top,
+      rgba(white, .25),
+      rgba($black, .25)
+    ),
+    linear-gradient(left,
+      #adcf68,
+      #63c56e
+    )
+  );
+
+  border-radius: .25em;
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+::-webkit-progress-bar {
+  @include progress-bar;
+}
+
+::-webkit-progress-value {
+  @include progress-value;
+}
+
+::-moz-progress-bar {
+  @include progress-bar;
+}
+
+::-moz-progress-value {
+  @include progress-value;
+}
+
+@include keyframes(animate-stripes) {
+  100% {
+    background-position: -100% 0, 0 0, 0 0;
+  }
+}
+
+
+/*! @{target: fonts */
+@include font-face('billion', (
+  'woff': 'billion-stars/subset/billionstars_personaluse.woff',
+  'ttf': 'billion-stars/subset/billionstars_personaluse.ttf',
+  'eot': 'billion-stars/subset/billionstars_personaluse.eot'
+), $inline-woff: true);
+
+@include font-face('maven', (
+  'woff': 'maven-pro/subset/mavenprolight-200-webfont.woff'
+), $inline-woff: true);
+/*! {target: fonts@ */
