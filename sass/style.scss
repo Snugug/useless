@@ -4,7 +4,7 @@ $graceful-usage-threshold: 100;
 $critical-usage-threshold: 100;
 
 $browser-minimum-versions: (
-  "ie": "9",
+  "ie": "11",
   "android": "4",
   "chrome": "37",
   "safari": "7",
@@ -50,6 +50,8 @@ $black: #6b717f;
 
 
 .intro {
+  @include absolute-center($fixed: true);
+
   &--text {
     font-size: 3vw;
     text-align: center;
@@ -70,14 +72,13 @@ $black: #6b717f;
   }
 
   &--progress {
-    $width: 80vw;
-    width: $width;
-    transform: translateX((100vw - $width) / 2) translateY(5vw);
+    width: 80vw;
+    margin-top: 3vw;
 
     -webkit-appearance: none;
     appearance: none;
     border: 0;
-    height: 1.5vw;
+    height: 2vw;
     border-radius: 0;
   }
 }
@@ -107,7 +108,7 @@ $black: #6b717f;
   );
 
   border-radius: .25em;
-  background-size: 35px 20px, 100% 100%, 100% 100%;
+  background-size: 3vw 2vw, 100% 100%, 100% 100%;
 }
 
 ::-webkit-progress-bar {
@@ -133,14 +134,16 @@ $black: #6b717f;
 }
 
 
-/*! @{target: fonts */
+/*! @{target: fonts} */
 @include font-face('billion', (
-  'woff': 'billion-stars/subset/billionstars_personaluse.woff',
-  'ttf': 'billion-stars/subset/billionstars_personaluse.ttf',
-  'eot': 'billion-stars/subset/billionstars_personaluse.eot'
+  'woff': 'billion-stars/subset/billion.woff',
+  'ttf': 'billion-stars/subset/billion.ttf',
+  'eot': 'billion-stars/subset/billion.eot'
 ), $inline-woff: true);
 
 @include font-face('maven', (
-  'woff': 'maven-pro/subset/mavenprolight-200-webfont.woff'
+  'woff': 'maven-pro/subset/maven.woff',
+  'ttf': 'maven-pro/subset/maven.ttf',
+  'eot': 'maven-pro/subset/maven.eot'
 ), $inline-woff: true);
-/*! {target: fonts@ */
+/*! {target: fonts}@ */
