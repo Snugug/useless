@@ -13,6 +13,8 @@ require('./tasks/dev-css')(gulp);
 require('./tasks/dev-img')(gulp);
 require('./tasks/dev-fonts')(gulp);
 require('./tasks/dev-html')(gulp);
+
+require('./tasks/build')(gulp);
 //////////////////////////////
 // Compass Task
 //////////////////////////////
