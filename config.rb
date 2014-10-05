@@ -21,7 +21,7 @@ javascripts_dir = "js"
 fonts_dir = "fonts"
 
 # You can select your preferred output style here (can be overridden via the command line): One of: :nested, :expanded, :compact, or :compressed
-output_style = :expanded
+output_style = :compressed
 
 # Determine whether Compass asset helper functions generate relative or absolute paths
 relative_assets = true
