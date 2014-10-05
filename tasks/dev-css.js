@@ -4,6 +4,8 @@
 // Requires
 //////////////////////////////
 var paths = require('compass-options').paths(),
+    target = require('gulp-css-target'),
+    uncss = require('gulp-uncss'),
     browserSync = require('browser-sync'),
     reload = browserSync.reload;
 
@@ -19,6 +21,11 @@ module.exports = function (gulp, devPaths) {
     devPaths = devPaths || workPaths;
 
     return gulp.src(devPaths)
+      // .pipe(target())
+      .pipe(uncss({
+        html: ['build.html']
+      }))
+      .pipe(gulp.dest(paths.css + '/'))
       .pipe(reload({stream: true}));
   });
 }
